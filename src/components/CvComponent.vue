@@ -2,7 +2,7 @@
 	<div class ="page">
 		<div class="image">
 			<n-image
-				src="src\assets\Cv.png"
+				src="src\assets\cv.png"
 			/>
 		</div>
 		<h1 class="title">Cliquez pour agrandir</h1>
