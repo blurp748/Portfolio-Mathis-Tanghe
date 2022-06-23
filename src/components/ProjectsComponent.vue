@@ -1,6 +1,6 @@
 <template>
 	<div class ="page">
-		<n-carousel autoplay dot-type="line">
+		<n-carousel autoplay touchable>
 			<img
 			class="carousel-img"
 			src="../assets/graph.png"
@@ -31,8 +31,7 @@ export default defineComponent({
 }
 
 .carousel-img {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 </style>
