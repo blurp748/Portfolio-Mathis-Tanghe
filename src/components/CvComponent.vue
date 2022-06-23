@@ -2,7 +2,7 @@
 	<div class ="page">
 		<div class="image">
 			<n-image
-				src="src\assets\cv.png"
+				:src="image"
 			/>
 		</div>
 		<h1 class="title">Cliquez pour agrandir</h1>
@@ -12,10 +12,16 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { NImage } from 'naive-ui'
+import image from "../assets/cv.png"
 
 export default defineComponent({
 	components: {
 		NImage,
+	},
+	setup() {
+		return {
+			image
+		};
 	},
 });
 </script>
