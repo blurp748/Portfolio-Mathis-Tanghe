@@ -25,6 +25,7 @@
         <PresentationComponent id="presentation" />
         <ProjectsComponent />
         <PathComponent />
+        <CvComponent />
       </n-layout>
     </n-layout>
   </div>
@@ -33,6 +34,7 @@
       <PresentationComponent id="presentation" />
       <ProjectsComponent />
       <PathComponent />
+      <CvComponent />
     </n-layout>
     <n-menu class="menuTiny" mode="horizontal" :options="menuOptionsTiny" />
   </div>
@@ -46,6 +48,7 @@ import { BodyOutline, Analytics, SchoolOutline, DocumentOutline } from '@vicons/
 import PresentationComponent from "./PresentationComponent.vue";
 import ProjectsComponent from "./ProjectsComponent.vue";
 import PathComponent from "./PathComponent.vue";
+import CvComponent from "./CvComponent.vue";
 
 const menuOptions: MenuOption[] = [
   {
@@ -91,6 +94,7 @@ export default defineComponent({
     PresentationComponent,
     ProjectsComponent,
     PathComponent,
+    CvComponent,
 	},
   setup () {
     return {
@@ -134,6 +138,7 @@ export default defineComponent({
     display: none;
   }
 }
+
 @media screen and (max-width: 720px) {
   .items-menu {
     transform: translateY(35vh);
