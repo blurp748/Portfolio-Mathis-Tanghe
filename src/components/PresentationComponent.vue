@@ -1,6 +1,7 @@
 <template>
 	<div class ="page">
-		<n-card class="card" title="Bonjour,">
+		<n-card class="card" :bordered="false">
+			<h1>Bonjour, </h1><br/>
 			Actuellement en troisième année de licence en
 			informatique, je m'épanoui complétement dans mon
 			domaine.<br />
@@ -29,16 +30,39 @@ export default defineComponent({
 .page {
 	width: 100vw;
 	height: 100vh;
-	background-image: url("../assets/grey.jpg");
-	background-repeat: no-repeat;
-  	background-size: 100%;
 }
-.card {
-	max-width: 300px;
+
+@media screen and (min-width: 721px) {
+	.page {
+		background-image: url("../assets/black.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	.card {
+	max-width: 30%;
 	display: flex;
 	margin : auto;
-	top: 35%;
+	top: 30vh;
 	left: 20%;
+	border-radius: 30px;
+	}
+}
+@media screen and (max-width: 720px) {
 
+	.page {
+		background-image: url("../assets/black.png");
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+	
+	.card {
+	max-width: 80%;
+	display: flex;
+	margin: auto;
+	top: 20%;
+	color: white;
+	background: rgba(0,0,0,0.1);
+	border-radius: 30px;
+	}
 }
 </style>

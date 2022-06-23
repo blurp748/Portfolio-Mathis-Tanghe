@@ -1,30 +1,41 @@
 <template>
-  <n-layout has-sider>
-    <n-layout-sider class="slide"
-      bordered
-      collapse-mode="width"
-      :collapsed-width="64"
-      :width="240"
-      :collapsed="collapsed"
-      show-trigger
-      @collapse="collapsed = true"
-      @expand="collapsed = false"
-    >
-      <n-menu
-        :collapsed="collapsed"
+  <div class="big">
+    <n-layout has-sider>
+      <n-layout-sider class="slide"
+        bordered
+        collapse-mode="width"
         :collapsed-width="64"
-        :collapsed-icon-size="22"
-        :options="menuOptions"
-        :render-label="renderMenuLabel"
-        :render-icon="renderMenuIcon"
-      />
-    </n-layout-sider>
-    <n-layout class="content">
+        :width="240"
+        :collapsed="collapsed"
+        show-trigger
+        @collapse="collapsed = true"
+        @expand="collapsed = false"
+      >
+        <n-menu
+          class="items-menu"
+          :collapsed="collapsed"
+          :collapsed-width="64"
+          :collapsed-icon-size="22"
+          :options="menuOptions"
+          :render-label="renderMenuLabel"
+          :render-icon="renderMenuIcon"
+        />
+      </n-layout-sider>
+      <n-layout class="content">
+        <PresentationComponent id="presentation" />
+        <ProjectsComponent />
+        <PathComponent />
+      </n-layout>
+    </n-layout>
+  </div>
+  <div class="tiny">
+    <n-layout>
       <PresentationComponent id="presentation" />
       <ProjectsComponent />
       <PathComponent />
     </n-layout>
-  </n-layout>
+    <n-menu class="menuTiny" mode="horizontal" :options="menuOptionsTiny" />
+  </div>
 </template>
 
 <script lang="ts">
@@ -56,6 +67,22 @@ const menuOptions: MenuOption[] = [
   }
 ]
 
+const menuOptionsTiny: MenuOption[] = [
+  {
+    key: 'presentation',
+    href: '#presentation',
+  },
+  {
+    key: 'path',
+  },
+  {
+    key: 'projects',
+  },
+  {
+    key: 'cv',
+  }
+]
+
 export default defineComponent({
 	components: {
 		NLayout, 
@@ -68,6 +95,7 @@ export default defineComponent({
   setup () {
     return {
       menuOptions,
+      menuOptionsTiny,
       collapsed: ref(true),
       renderMenuLabel (option: MenuOption) {
         if ('href' in option) {
@@ -96,5 +124,26 @@ export default defineComponent({
 }
 .content {
   margin-left: 65px;
+}
+
+@media screen and (min-width: 721px) {
+  .items-menu {
+    transform: translateY(40vh);
+  }
+  .tiny {
+    display: none;
+  }
+}
+@media screen and (max-width: 720px) {
+  .items-menu {
+    transform: translateY(35vh);
+  }
+  .big {
+    display: none;
+  }
+
+  .menuTiny {
+    position: fixed;
+  }
 }
 </style>
