@@ -1,7 +1,8 @@
 <template>
   <div class="big">
     <n-layout has-sider>
-      <n-layout-sider class="slide"
+      <n-layout-sider
+        class="slide"
         bordered
         collapse-mode="width"
         :collapsed-width="64"
@@ -41,10 +42,15 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, h , ref } from 'vue'
-import { NIcon, NLayout, NLayoutSider, NMenu } from 'naive-ui'
-import type { MenuOption } from 'naive-ui'
-import { BodyOutline, Analytics, SchoolOutline, DocumentOutline } from '@vicons/ionicons5'
+import { defineComponent, h, ref } from "vue";
+import { NIcon, NLayout, NLayoutSider, NMenu } from "naive-ui";
+import type { MenuOption } from "naive-ui";
+import {
+  BodyOutline,
+  Analytics,
+  SchoolOutline,
+  DocumentOutline,
+} from "@vicons/ionicons5";
 import PresentationComponent from "./PresentationComponent.vue";
 import ProjectsComponent from "./ProjectsComponent.vue";
 import PathComponent from "./PathComponent.vue";
@@ -52,72 +58,75 @@ import CvComponent from "./CvComponent.vue";
 
 const menuOptions: MenuOption[] = [
   {
-    label: 'Presentation',
-    key: 'presentation',
-    href: '#presentation',
+    label: "Presentation",
+    key: "presentation",
+    href: "#presentation",
   },
   {
-    label: 'Mon Parcours',
-    key: 'path',
+    label: "Mon Parcours",
+    key: "path",
   },
   {
-    label: 'Mes projets',
-    key: 'projects',
+    label: "Mes projets",
+    key: "projects",
   },
   {
-    label: 'Mon CV',
-    key: 'cv',
-  }
-]
+    label: "Mon CV",
+    key: "cv",
+  },
+];
 
 const menuOptionsTiny: MenuOption[] = [
   {
-    key: 'presentation',
-    href: '#presentation',
+    key: "presentation",
+    href: "#presentation",
   },
   {
-    key: 'path',
+    key: "path",
   },
   {
-    key: 'projects',
+    key: "projects",
   },
   {
-    key: 'cv',
-  }
-]
+    key: "cv",
+  },
+];
 
 export default defineComponent({
-	components: {
-		NLayout, 
-    NLayoutSider, 
+  components: {
+    NLayout,
+    NLayoutSider,
     NMenu,
     PresentationComponent,
     ProjectsComponent,
     PathComponent,
     CvComponent,
-	},
-  setup () {
+  },
+  setup() {
     return {
       menuOptions,
       menuOptionsTiny,
       collapsed: ref(true),
-      renderMenuLabel (option: MenuOption) {
-        if ('href' in option) {
-          return h('a', { href: option.href, target: '_blank' }, [
-            option.label as string
-          ])
+      renderMenuLabel(option: MenuOption) {
+        if ("href" in option) {
+          return h("a", { href: option.href, target: "_blank" }, [
+            option.label as string,
+          ]);
         }
-        return option.label as string
+        return option.label as string;
       },
-      renderMenuIcon (option: MenuOption) {
+      renderMenuIcon(option: MenuOption) {
         // return falsy, don't render icon placeholder
-        if (option.key === 'cv') return h(NIcon, null, { default: () => h(DocumentOutline) })
-        if (option.key === 'projects') return h(NIcon, null, { default: () => h(Analytics) })
-        if (option.key === 'path') return h(NIcon, null, { default: () => h(SchoolOutline) })
-        return h(NIcon, null, { default: () => h(BodyOutline) })
+        if (option.key === "cv")
+          return h(NIcon, null, { default: () => h(DocumentOutline) });
+        if (option.key === "projects")
+          return h(NIcon, null, { default: () => h(Analytics) });
+        if (option.key === "path")
+          return h(NIcon, null, { default: () => h(SchoolOutline) });
+        return h(NIcon, null, { default: () => h(BodyOutline) });
       },
-    }
-  }
+    };
+  },
 });
 </script>
 
