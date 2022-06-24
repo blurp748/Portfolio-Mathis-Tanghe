@@ -39,30 +39,35 @@
 			<h1 class="titleTiny">Mon Parcours</h1>
 			<n-timeline class="timelineTiny">
 				<n-timeline-item
+				class="timeline-item"
 				type="success"
 				title="Master Informatique (en cours)"
 				content="Université Savoie Mont Blanc"
 				time="2022"
 				/>
 				<n-timeline-item
+				class="timeline-item"
 				type="success"
 				title="Développeur Web pour une PWA"
 				content="Laboratoire du LIRIS - Lyon"
 				time="2022"
 				/>
 				<n-timeline-item
+				class="timeline-item"
 				type="success"
 				title="Licence Informatique"
 				content="Université Savoie Mont Blanc - Mention Bien"
 				time="2022"
 				/>
 				<n-timeline-item
+				class="timeline-item"
 				type="success"
 				title="Développeur Android"
 				content="Projet tutoré pour l'Office nationale des forêts"
 				time="2022"
 				/>
 				<n-timeline-item
+				class="timeline-item"
 				type="success"
 				title="Baccalauréat Scientifique"
 				content="Lycée des Glières - Annemasse"
@@ -135,6 +140,7 @@ export default defineComponent({
 	}
 
 	.timelineTiny {
+		display: flex;
 		width: 80%;
 		margin: auto;
 		padding: 25px;
@@ -144,6 +150,12 @@ export default defineComponent({
 	.big {
 		display: none;
 	}
-
 }
+
+@media screen and (max-height: 620px) {
+	.page {
+		height: 120vh;
+	}
+}
+
 </style>
