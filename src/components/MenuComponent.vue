@@ -18,15 +18,14 @@
           :collapsed-width="64"
           :collapsed-icon-size="22"
           :options="menuOptions"
-          :render-label="renderMenuLabel"
           :render-icon="renderMenuIcon"
         />
       </n-layout-sider>
       <n-layout class="content">
         <PresentationComponent id="presentation" />
-        <ProjectsComponent />
-        <PathComponent />
-        <CvComponent />
+        <ProjectsComponent id="projects" />
+        <PathComponent id="path" />
+        <CvComponent id="cv" />
       </n-layout>
     </n-layout>
   </div>
@@ -42,7 +41,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, h, ref } from "vue";
+import { defineComponent, h, ref, type Ref } from "vue";
 import { NIcon, NLayout, NLayoutSider, NMenu } from "naive-ui";
 import type { MenuOption } from "naive-ui";
 import {
@@ -58,20 +57,47 @@ import CvComponent from "./CvComponent.vue";
 
 const menuOptions: MenuOption[] = [
   {
-    label: "Presentation",
+    label: () =>
+      h(
+        'a',
+        {
+          href: '#presentation',
+        },
+        'Présentation'
+      ),
     key: "presentation",
-    href: "#presentation",
   },
   {
-    label: "Mon Parcours",
-    key: "path",
-  },
-  {
-    label: "Mes projets",
+    label: () =>
+      h(
+        'a',
+        {
+          href: '#projects',
+        },
+        'Mes projets'
+      ),
     key: "projects",
   },
   {
-    label: "Mon CV",
+    label: () =>
+      h(
+        'a',
+        {
+          href: '#path',
+        },
+        'Mon Parcours'
+      ),
+    key: "path",
+  },
+  {
+    label: () =>
+      h(
+        'a',
+        {
+          href: '#cv',
+        },
+        'Mon CV'
+      ),
     key: "cv",
   },
 ];
@@ -103,20 +129,28 @@ export default defineComponent({
     CvComponent,
   },
   setup() {
+
+    const presRef = ref(null)
+    const projectRef = ref(null)
+    const pathRef = ref(null)
+    const cvRef = ref(null)
+
+    function goto(ref : Ref<any>){
+      if(ref.value != null){
+        var top = ref.value.offsetTop;
+        window.scrollTo(0, top);
+      }
+    }
+
     return {
+      presRef,
+      projectRef,
+      pathRef,
+      cvRef,
       menuOptions,
       menuOptionsTiny,
       collapsed: ref(true),
-      renderMenuLabel(option: MenuOption) {
-        if ("href" in option) {
-          return h("a", { href: option.href, target: "_blank" }, [
-            option.label as string,
-          ]);
-        }
-        return option.label as string;
-      },
       renderMenuIcon(option: MenuOption) {
-        // return falsy, don't render icon placeholder
         if (option.key === "cv")
           return h(NIcon, null, { default: () => h(DocumentOutline) });
         if (option.key === "projects")

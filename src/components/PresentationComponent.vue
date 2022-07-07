@@ -3,12 +3,11 @@
     <n-card class="card reveal fade-left" :bordered="false">
       <h1>Bonjour,</h1>
       <br />
-      Actuellement en troisième année de licence en informatique, je m'épanoui
+      Actuellement en troisième année de licence en informatique, je m'épanouis
       complétement dans mon domaine.<br />
-      J'aime le développement et j'aimerai en connaître toujours plus sur les
+      J'aime le développement et j'aimerais en connaître toujours plus sur les
       technologies que je manipule.<br />
-      J'adore aider les gens, mais surtout leur apprendre des choses et qu'ils
-      m'en apprennent aussi !
+      J'adore partager mes connaissances et apprendre des autres.
     </n-card>
   </div>
 </template>
@@ -57,7 +56,7 @@ export default defineComponent({
 
 @media screen and (min-width: 721px) {
   .page {
-    background-image: url("../assets/black.png");
+    background-image: url("../assets/profil.jpg");
     background-repeat: no-repeat;
     background-size: cover;
   }

@@ -1,7 +1,7 @@
 <template>
   <div class="page">
     <div class="image reveal fade-left">
-      <n-image :src="image" />
+      <n-image class="img" :src="image" />
     </div>
     <h1 class="title">Cliquez pour agrandir</h1>
   </div>
@@ -59,10 +59,13 @@ export default defineComponent({
 }
 .image {
   display: flex;
-  justify-content: center;
   padding-top: 10vh;
   height: 75%;
-  max-height: 100vw;
+}
+
+.img {
+  justify-content: center;
+  width: 100vw;
 }
 
 .reveal {
