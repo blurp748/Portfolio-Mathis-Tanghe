@@ -64,6 +64,7 @@ export default defineComponent({
 }
 
 .img {
+  background: transparent;
   justify-content: center;
   width: 100vw;
 }

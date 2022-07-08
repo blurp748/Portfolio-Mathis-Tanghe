@@ -1,5 +1,10 @@
 <template>
   <div class="page">
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
     <n-card class="card reveal fade-left" :bordered="false">
       <h1>Bonjour,</h1>
       <br />
@@ -9,11 +14,6 @@
       technologies que je manipule.<br />
       J'adore partager mes connaissances et apprendre des autres.
     </n-card>
-    <div class="lines">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
   </div>
 </template>
 
@@ -86,7 +86,6 @@ export default defineComponent({
     top: 20%;
     color: white;
     background: rgba(0, 0, 0, 0);
-    z-index:10;
   }
 
   .lines {
