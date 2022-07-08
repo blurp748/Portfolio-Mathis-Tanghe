@@ -9,6 +9,11 @@
       technologies que je manipule.<br />
       J'adore partager mes connaissances et apprendre des autres.
     </n-card>
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
   </div>
 </template>
 
@@ -55,6 +60,9 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 721px) {
+  .lines {
+    display: none;
+  }
   .page {
     background-image: url("../assets/profil.jpg");
     background-repeat: no-repeat;
@@ -82,8 +90,76 @@ export default defineComponent({
     margin: auto;
     top: 20%;
     color: white;
-    background: rgba(0, 0, 0, 0.1);
-    border-radius: 30px;
+    background: rgba(0, 0, 0, 0);
+    z-index:10;
+  }
+
+  .lines {
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: #171717;
+    color: #000;
+    line-height: 1.6;
+    position: relative;
+    font-family: sans-serif;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    width: 100vw;
+  }
+  
+  .line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+  }
+
+  .line::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 15vh;
+    width: 100%;
+    top: -50%;
+    left: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+    animation: drop 12s 0s infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+  }
+  
+  .line:nth-child(1) {
+    margin-left: -25%;
+  }
+
+  .line:nth-child(1)::after {
+    animation-delay: 2s
+  }
+
+  .line:nth-child(3) {
+    margin-left: 25%;
+  }
+
+  .line:nth-child(3)::after {
+    animation-delay: 2.5s
+  }
+    
+  @keyframes drop {
+    0% {
+      top: -50%;
+    }
+    100% {
+      top: 110%;
+    }
   }
 }
 
