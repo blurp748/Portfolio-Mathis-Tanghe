@@ -78,11 +78,6 @@ export default defineComponent({
   }
 }
 @media screen and (max-width: 720px) {
-  .page {
-    background-image: url("../assets/black.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 
   .card {
     max-width: 80%;
@@ -96,8 +91,8 @@ export default defineComponent({
 
   .lines {
     display: table;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background-color: #171717;
     color: #000;
     line-height: 1.6;
@@ -108,7 +103,7 @@ export default defineComponent({
     top: 0;
     left: 0;
     right: 0;
-    height: 100%;
+    height: 100vh;
     margin: auto;
     width: 100vw;
   }
@@ -132,7 +127,7 @@ export default defineComponent({
     top: -50%;
     left: 0;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
-    animation: drop 12s 0s infinite;
+    animation: drop 7s 0s infinite;
     animation-fill-mode: forwards;
     animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
   }
