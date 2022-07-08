@@ -3,7 +3,6 @@
     <div class="image reveal fade-left">
       <n-image class="img" :src="image" />
     </div>
-    <h1 class="title">Cliquez pour agrandir</h1>
   </div>
 </template>
 
@@ -47,26 +46,39 @@ export default defineComponent({
   overflow: unset;
   width: 100vw;
   height: 100vh;
-  background-image: url("../assets/grey2.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.title {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  margin-block: 0;
 }
 .image {
   display: flex;
-  padding-top: 10vh;
-  height: 75%;
 }
 
 .img {
   background: transparent;
   justify-content: center;
   width: 100vw;
+}
+
+@media screen and (max-width: 720px) {
+  .image {
+    padding-top: 25vh;
+    height: 50%;
+  }
+
+  .page {
+    background: #171717;
+    background-size: cover;
+  }
+}
+
+@media screen and (min-width: 721px) {
+  .image {
+    padding-top: 10vh;
+    height: 75%;
+  }
+  .page {
+    background-image: url("../assets/grey2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 .reveal {

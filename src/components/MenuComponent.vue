@@ -23,8 +23,8 @@
       </n-layout-sider>
       <n-layout class="content">
         <PresentationComponent id="presentation" />
-        <ProjectsComponent id="projects" />
         <PathComponent id="path" />
+        <ProjectsComponent id="projects" />
         <CvComponent id="cv" />
       </n-layout>
     </n-layout>
@@ -32,8 +32,8 @@
   <div class="tiny">
     <n-layout>
       <PresentationComponent id="presentation" />
-      <ProjectsComponent />
       <PathComponent />
+      <ProjectsComponent />
       <CvComponent />
     </n-layout>
     <n-menu class="menuTiny" mode="horizontal" :options="menuOptionsTiny" />
