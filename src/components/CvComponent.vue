@@ -1,14 +1,14 @@
 <template>
   <div class="page">
     <div class="image reveal fade-left">
-      <n-image class="img" :src="image" />
+      <n-image id="n_image" class="img" :src="image" />
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { NImage } from "naive-ui";
+import { NImage, NButton } from "naive-ui";
 import image from "../assets/cv.png";
 
 function reveal() {
@@ -32,10 +32,17 @@ window.addEventListener("scroll", reveal);
 export default defineComponent({
   components: {
     NImage,
+    NButton,
   },
   setup() {
     return {
       image,
+      show() {
+        const img = document.getElementById('n_image');
+        if (img != null){
+          img.style.visibility = "visible";
+        }
+      }
     };
   },
 });
@@ -64,7 +71,8 @@ export default defineComponent({
   }
 
   .page {
-    background: #171717;
+    background-image: url("../assets/background_19.png");
+    background-repeat: no-repeat;
     background-size: cover;
   }
 }

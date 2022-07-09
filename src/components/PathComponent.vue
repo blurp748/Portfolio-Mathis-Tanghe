@@ -156,7 +156,11 @@ export default defineComponent({
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    background: #171717;
+    background-image: url("../assets/background_17.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
   }
   .titleTiny {
     color: whitesmoke;
@@ -164,6 +168,7 @@ export default defineComponent({
     margin-block: 0;
     margin-top: 10%;
     margin-bottom: 15%;
+    background: #171717;
   } 
 
   .timelineTiny {
