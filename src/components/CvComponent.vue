@@ -82,11 +82,6 @@ export default defineComponent({
     padding-top: 10vh;
     height: 75%;
   }
-  .page {
-    background-image: url("../assets/grey2.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
 }
 
 .reveal {

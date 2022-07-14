@@ -1,11 +1,29 @@
 <template>
   <div class="page">
+
     <div class="lines">
       <div class="line"></div>
       <div class="line"></div>
       <div class="line"></div>
     </div>
+
+    <div class="reveal fade-left">
+      <div class="atom atom1">
+        <div class="atom-dot atom-dot1"></div>
+      </div>
+      <div class="atom atom2">
+        <div class="atom-dot atom-dot2"></div>
+      </div>
+      <div class="atom atom3">
+        <div class="atom-dot atom-dot3"></div>
+      </div>
+      <div class="atom atom4">
+        <div class="atom-dot atom-dot4"></div>
+      </div>
+    </div>
+
     <n-card class="card reveal fade-left" :bordered="false">
+    <div class="text">
       <h1>Bonjour,</h1>
       <br />
       Actuellement en troisième année de licence en informatique, je m'épanouis
@@ -13,6 +31,8 @@
       J'aime le développement et j'aimerais en connaître toujours plus sur les
       technologies que je manipule.<br />
       J'adore partager mes connaissances et apprendre des autres.
+    </div>
+
     </n-card>
   </div>
 </template>
@@ -63,18 +83,115 @@ export default defineComponent({
   .lines {
     display: none;
   }
-  .page {
-    background-image: url("../assets/profil.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
   .card {
     max-width: 30%;
     display: flex;
     margin: auto;
-    top: 30vh;
+    top: 25vh;
+    height: 50vh;
     left: 20%;
     border-radius: 30px;
+  }
+
+  .text {
+    font-size: calc(4px + 6 * ((100vw - 320px) / 680));
+  }
+  .page {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .atom {
+    border-radius: 50%; 
+    border: 1px solid #fff;
+    transform-style: preserve-3d; 
+    transform: rotateX(80deg) rotateY(20deg);
+    position: absolute;
+    left: 20vw;
+    top: 25vh;
+  }
+  .atom1::after {
+    content: "";
+    position: absolute;
+    height: 5vw;
+    width: 5vw;
+    background: #fff;
+    border-radius: 50%;
+    transform: rotateX(-80deg) rotateY(0);
+    box-shadow: 0 0 25px #fff;
+    animation: nucleus_ 2s infinite linear;
+    margin-top: -15vw;
+    margin-left: 10vw;
+  }
+  
+  .atom2 {
+    transform: rotateX(-80deg) rotateY(20deg);
+  }
+
+  .atom3 {
+    transform: rotateX(-70deg) rotateY(60deg);
+  }
+
+  .atom4 {
+    transform: rotateX(70deg) rotateY(60deg);
+  }
+  
+  .atom-dot {
+    width: 25vw;
+    height: 25vw;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: trail_ 2s infinite linear;
+  }
+
+  .atom-dot2 {
+    animation-delay: -0.5s;
+  }
+
+  .atom-dot3 {
+    animation-delay: -1s;
+  }
+
+  .atom-dot4 {
+    animation-delay: -1.5s;
+  }
+
+  .atom-dot::after {
+    content: ""; 
+    position: absolute;
+    box-shadow: 0 0 12px #fff;
+    margin-left: -5px; 
+    width: 5px; 
+    height: 5px; 
+    border-radius: 50%;
+    background-color: #fff;
+    animation: particle_ 2s infinite linear;
+    left: 50%;
+  }
+
+  @keyframes trail_ { 
+    from {
+      transform: rotateZ(0deg);
+    } to {
+      transform: rotateZ(360deg);
+    }
+  }
+
+  @keyframes particle_ { 
+    from {
+      transform: rotateX(90deg) rotateY(0deg); 
+    } to { 
+      transform: rotateX(90deg) rotateY(-360deg); 
+    } 
+  }
+
+  @keyframes nucleus_ { 
+    0%, 100% {
+      box-shadow: 0 0 0 transparent;
+    } 50% { 
+      box-shadow: 0 0 25px #fff;
+    }
   }
 }
 @media screen and (max-width: 720px) {

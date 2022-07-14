@@ -4,35 +4,50 @@
       <h1 class="title">Mon Parcours</h1>
       <n-timeline class="timeline" horizontal>
         <n-timeline-item
+          class="timeline-item"
           type="success"
-          title="Baccalauréat Scientifique"
-          content="Lycée des Glières - Annemasse"
+          time="2022"
+          color="grey"
+        >
+          <h4 class="title-item">Master Informatique (en cours)</h4>
+          <div class="text-item">Université Savoie Mont Blanc</div>
+        </n-timeline-item>
+        <n-timeline-item
+          class="timeline-item"
+          type="success"
+          time="2022"
+          color="grey"
+        >
+          <h4 class="title-item">Développeur Web pour une PWA</h4>
+          <div class="text-item">Laboratoire du LIRIS - Lyon</div>
+        </n-timeline-item>
+        <n-timeline-item
+          class="timeline-item"
+          type="success"
+          time="2022"
+          color="grey"
+        >
+          <h4 class="title-item">Licence Informatique</h4>
+          <div class="text-item">Université Savoie Mont Blanc - Mention Bien</div>
+        </n-timeline-item>
+        <n-timeline-item
+          class="timeline-item"
+          type="success"
+          time="2022"
+          color="grey"
+        >
+          <h4 class="title-item">Développeur Android</h4>
+          <div class="text-item">Projet tutoré pour l'Office nationale des forêts</div>
+        </n-timeline-item>
+        <n-timeline-item
+          class="timeline-item"
+          type="success"
           time="2017"
-        />
-        <n-timeline-item
-          type="success"
-          title="Développeur Android"
-          content="Projet tutoré pour l'Office nationale des forêts"
-          time="2022"
-        />
-        <n-timeline-item
-          type="success"
-          title="Licence Informatique"
-          content="Université Savoie Mont Blanc - Mention Bien"
-          time="2022"
-        />
-        <n-timeline-item
-          type="success"
-          title="Développeur Web pour une PWA"
-          content="Laboratoire du LIRIS - Lyon"
-          time="2022"
-        />
-        <n-timeline-item
-          type="success"
-          title="Master Informatique (en cours)"
-          content="Université Savoie Mont Blanc"
-          time="2022"
-        />
+          color="grey"
+        >
+          <h4 class="title-item">Baccalauréat Scientifique</h4>
+          <div class="text-item">Lycée des Glières - Annemasse</div>
+        </n-timeline-item>
       </n-timeline>
     </div>
     <div class="tiny reveal fade-left">
@@ -45,7 +60,7 @@
           color="whitesmoke"
         >
           <h4 class="title-item">Master Informatique (en cours)</h4>
-          <div>Université Savoie Mont Blanc</div>
+          <div class="text-item">Université Savoie Mont Blanc</div>
         </n-timeline-item>
         <n-timeline-item
           class="timeline-item"
@@ -54,7 +69,7 @@
           color="whitesmoke"
         >
           <h4 class="title-item">Développeur Web pour une PWA</h4>
-          <div>Laboratoire du LIRIS - Lyon</div>
+          <div class="text-item">Laboratoire du LIRIS - Lyon</div>
         </n-timeline-item>
         <n-timeline-item
           class="timeline-item"
@@ -63,7 +78,7 @@
           color="whitesmoke"
         >
           <h4 class="title-item">Licence Informatique</h4>
-          <div>Université Savoie Mont Blanc - Mention Bien</div>
+          <div class="text-item">Université Savoie Mont Blanc - Mention Bien</div>
         </n-timeline-item>
         <n-timeline-item
           class="timeline-item"
@@ -72,7 +87,7 @@
           color="whitesmoke"
         >
           <h4 class="title-item">Développeur Android</h4>
-          <div>Projet tutoré pour l'Office nationale des forêts</div>
+          <div class="text-item">Projet tutoré pour l'Office nationale des forêts</div>
         </n-timeline-item>
         <n-timeline-item
           class="timeline-item"
@@ -81,7 +96,7 @@
           color="whitesmoke"
         >
           <h4 class="title-item">Baccalauréat Scientifique</h4>
-          <div>Lycée des Glières - Annemasse</div>
+          <div class="text-item">Lycée des Glières - Annemasse</div>
         </n-timeline-item>
       </n-timeline>
     </div>
@@ -137,13 +152,21 @@ export default defineComponent({
     overflow-x: overlay;
   }
 
+  .title-item {
+    color: whitesmoke;
+  }
+
   .page {
     width: calc(100vw - 65px);
-    background-image: url("../assets/background_cv.jpg");
+  }
+
+  .text-item {
+    color: grey;
   }
 
   .title {
     margin-block: 0;
+    color: whitesmoke;
     padding: 50px;
   }
 
@@ -183,6 +206,10 @@ export default defineComponent({
 
   .title-item {
     color: whitesmoke;
+  }
+
+  .text-item {
+    color: grey;
   }
 
   .big {

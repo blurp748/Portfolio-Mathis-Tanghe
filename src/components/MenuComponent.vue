@@ -24,19 +24,18 @@
       <n-layout class="content">
         <PresentationComponent id="presentation" />
         <PathComponent id="path" />
-        <ProjectsComponent id="projects" />
+        <ProjectsComponent id="project" />
         <CvComponent id="cv" />
       </n-layout>
     </n-layout>
   </div>
   <div class="tiny">
     <n-layout>
-      <PresentationComponent id="presentation" />
+      <PresentationComponent />
       <PathComponent />
       <ProjectsComponent />
       <CvComponent />
     </n-layout>
-    <n-menu class="menuTiny" mode="horizontal" :options="menuOptionsTiny" />
   </div>
 </template>
 
@@ -72,17 +71,6 @@ const menuOptions: MenuOption[] = [
       h(
         'a',
         {
-          href: '#projects',
-        },
-        'Mes projets'
-      ),
-    key: "projects",
-  },
-  {
-    label: () =>
-      h(
-        'a',
-        {
           href: '#path',
         },
         'Mon Parcours'
@@ -94,26 +82,21 @@ const menuOptions: MenuOption[] = [
       h(
         'a',
         {
+          href: '#project',
+        },
+        'Mes projets'
+      ),
+    key: "project",
+  },
+  {
+    label: () =>
+      h(
+        'a',
+        {
           href: '#cv',
         },
         'Mon CV'
       ),
-    key: "cv",
-  },
-];
-
-const menuOptionsTiny: MenuOption[] = [
-  {
-    key: "presentation",
-    href: "#presentation",
-  },
-  {
-    key: "path",
-  },
-  {
-    key: "projects",
-  },
-  {
     key: "cv",
   },
 ];
@@ -130,11 +113,6 @@ export default defineComponent({
   },
   setup() {
 
-    const presRef = ref(null)
-    const projectRef = ref(null)
-    const pathRef = ref(null)
-    const cvRef = ref(null)
-
     function goto(ref : Ref<any>){
       if(ref.value != null){
         var top = ref.value.offsetTop;
@@ -143,17 +121,12 @@ export default defineComponent({
     }
 
     return {
-      presRef,
-      projectRef,
-      pathRef,
-      cvRef,
       menuOptions,
-      menuOptionsTiny,
       collapsed: ref(true),
       renderMenuIcon(option: MenuOption) {
         if (option.key === "cv")
           return h(NIcon, null, { default: () => h(DocumentOutline) });
-        if (option.key === "projects")
+        if (option.key === "project")
           return h(NIcon, null, { default: () => h(Analytics) });
         if (option.key === "path")
           return h(NIcon, null, { default: () => h(SchoolOutline) });
@@ -165,20 +138,39 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.slide {
-  position: fixed;
-  height: 100vh;
-}
 .content {
   margin-left: 65px;
 }
 
 @media screen and (min-width: 721px) {
+  .slide {
+    position: fixed;
+    height: 100vh;
+  }
   .items-menu {
     transform: translateY(40vh);
   }
   .tiny {
     display: none;
+  }
+
+  .content {
+    background: linear-gradient(-45deg, #000000, #222222, #444444, #666666);
+    background-size: 400% 400%;
+    background-attachment: fixed;
+    animation: gradient 30s ease infinite;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }
 
