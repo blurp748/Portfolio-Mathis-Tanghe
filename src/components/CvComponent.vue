@@ -1,47 +1,21 @@
 <template>
   <div class="page">
-    <div class="image reveal fade-left">
-      <n-image id="n_image" class="img" :src="image" />
+    <div class="box-3">
+      <div @click="show" class="btn btn-three">
+        <span>Ouvrir mon CV</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { NImage, NButton } from "naive-ui";
-import image from "../assets/cv.png";
-
-function reveal() {
-	const reveals = document.querySelectorAll(".reveal");
-
-	for (let i = 0; i < reveals.length; i++) {
-	const windowHeight = window.innerHeight;
-	const elementTop = reveals[i].getBoundingClientRect().top;
-	const elementVisible = 200;
-
-	if (elementTop < windowHeight - elementVisible) {
-		reveals[i].classList.add("active");
-	} else {
-		reveals[i].classList.remove("active");
-	}
-	}
-}
-
-window.addEventListener("scroll", reveal);
 
 export default defineComponent({
-  components: {
-    NImage,
-    NButton,
-  },
   setup() {
     return {
-      image,
       show() {
-        const img = document.getElementById('n_image');
-        if (img != null){
-          img.style.visibility = "visible";
-        }
+        window.open('https://api.tanghe.dev/cv');
       }
     };
   },
@@ -54,22 +28,8 @@ export default defineComponent({
   width: 100vw;
   height: 100vh;
 }
-.image {
-  display: flex;
-}
-
-.img {
-  background: transparent;
-  justify-content: center;
-  width: 100vw;
-}
 
 @media screen and (max-width: 720px) {
-  .image {
-    padding-top: 25vh;
-    height: 50%;
-  }
-
   .page {
     background-image: url("../assets/background_19.png");
     background-repeat: no-repeat;
@@ -78,34 +38,57 @@ export default defineComponent({
 }
 
 @media screen and (min-width: 721px) {
-  .image {
-    padding-top: 10vh;
-    height: 75%;
-  }
+
 }
 
-.reveal {
+div[class*=box] {
+  height: 100%;
+  width: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  color: #FFF;
+  transition: all 0.5s;
   position: relative;
+  line-height: 50px;
+  height: 50px;
+  text-align: center;
+  width: 250px;
+  cursor: pointer;
+}
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color: rgba(255,255,255,0.1);
+  transition: all 0.3s;
+}
+.btn:hover::before {
+  opacity: 0 ;
+  transform: scale(0.5,0.5);
+}
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
   opacity: 0;
+  transition: all 0.3s;
+  border: 1px solid rgba(255,255,255,0.5);
+  transform: scale(1.2,1.2);
 }
-
-.reveal.active {
+.btn:hover::after {
   opacity: 1;
-}
-
-.active.fade-left {
-  animation: myAnim 1s ease 0s 1 normal forwards;
-}
-
-@keyframes myAnim {
-	0% {
-		transform: scale(0.5);
-		transform-origin: 50% 100%;
-	}
-
-	100% {
-		transform: scale(1);
-		transform-origin: 50% 100%;
-	}
+  transform: scale(1,1);
 }
 </style>
